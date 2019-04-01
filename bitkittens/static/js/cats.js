@@ -3,8 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     catButton.addEventListener('click', function() {
         axios.get('http://bitkittens.herokuapp.com/cats.json')
         .then((response) => {
-            console.log(response)
-        })
+        let div1 = document.querySelector('#cat1');
+        let catsList = response.data.cats;
+        let img = document.createElement('img');
+        img.src = catsList[0]['photo']
+        div1.appendChild(img)
         console.log('you clicked that button you dirty dog!');
     });
+})
 });
